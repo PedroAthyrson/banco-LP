@@ -61,12 +61,27 @@ public class CaixaChatBot {
                             conta.sacar(saque);
                             break;
                         case 3:
-                            System.out.print("Data inicial: ");
-                            Data initialDate = new Data();
-                            System.out.print("Data final: ");
-                            Data finalDate = new Data();
-                            conta.criarExtrato(initialDate,finalDate);
-                            System.out.println(conta.getTransações());
+                            System.out.print("Digite o dia inicial: ");
+                            int initialDay = sc.nextInt();
+                            sc.nextLine();
+                            System.out.print("Digite o mês inicial: ");
+                            int initialMonth = sc.nextInt();
+                            sc.nextLine();
+                            System.out.print("Digite o ano inicial: ");
+                            int initialYear = sc.nextInt();
+                            sc.nextLine();
+
+                            System.out.print("Digite o dia final: ");
+                            int finalDay = sc.nextInt();
+                            sc.nextLine();
+                            System.out.print("Digite o mês final: ");
+                            int finalMonth = sc.nextInt();
+                            sc.nextLine();
+                            System.out.print("Digite o ano final: ");
+                            int finalYear = sc.nextInt();
+                            sc.nextLine();
+                            System.out.println(conta.criarExtrato(new Data(initialDay, initialMonth, initialYear),
+                                    new Data(finalDay, finalMonth, finalYear)).formatar());
                             break;
                         case 4:
                             System.out.print("Digite o número da conta destino: ");
@@ -78,12 +93,13 @@ public class CaixaChatBot {
                         case 5:
                             System.out.printf("Saldo: R$ %.2f\n", conta.getSaldo());
                             break;
+                        case 6:
+                            System.out.printf("Saldo final da conta: R$ %.2f", conta.getSaldo());
+                            break;
                     }
                 }
             }
-            else {
-                System.out.println("Essa conta não existe!");
-            }
+
 
         }
     }
