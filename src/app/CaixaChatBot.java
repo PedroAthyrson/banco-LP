@@ -9,12 +9,14 @@ public class CaixaChatBot {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Locale.setDefault(Locale.US);
-        int firstChoice = 0;
+        int firstChoice;
         List<ContaSimples> listaContas = new ArrayList<>();
 
         do {
-            System.out.println("Qual opção você deseja? \n1- Criar uma nova conta" +
-                    "\n2- Entrar numa conta já existente");
+            System.out.println("""
+                    Qual opção você deseja?\s
+                    1- Criar uma nova conta
+                    2- Entrar numa conta já existente""");
             firstChoice = sc.nextInt();
 
             if (firstChoice == 1) {
@@ -60,13 +62,29 @@ public class CaixaChatBot {
                             break;
                         case 3:
                             System.out.print("Data inicial: ");
-
-                            System.out.print(conta.criarExtrato());
+                            Data initialDate = new Data();
+                            System.out.print("Data final: ");
+                            Data finalDate = new Data();
+                            conta.criarExtrato(initialDate,finalDate);
+                            System.out.println(conta.getTransações());
+                            break;
+                        case 4:
+                            System.out.print("Digite o número da conta destino: ");
+                            int account = sc.nextInt();
+                            System.out.print("Digite o valor da trasferência: R$");
+                            double transferAmount = sc.nextDouble();
+                            conta.transferir(listaContas.get((account - 1)), transferAmount);
+                            break;
+                        case 5:
+                            System.out.printf("Saldo: R$ %.2f\n", conta.getSaldo());
+                            break;
                     }
                 }
             }
+            else {
+                System.out.println("Essa conta não existe!");
+            }
+
         }
-
-
     }
 }

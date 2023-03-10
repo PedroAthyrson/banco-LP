@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb829a74-09f0-48d2-bf5a-739429a3ad3d" name="Changes" comment="">
+    <list default="true" id="bb829a74-09f0-48d2-bf5a-739429a3ad3d" name="Changes" comment="&quot;Second commit&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/CaixaChatBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/CaixaChatBot.java" afterDir="false" />
     </list>
@@ -47,6 +47,18 @@
       <option name="presentableId" value="Default" />
       <updated>1678455124050</updated>
     </task>
+    <task id="LOCAL-00001" summary="&quot;Second commit&quot;">
+      <created>1678464518110</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678464518110</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="&quot;Second commit&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Second commit&quot;" />
   </component>
 </project>
