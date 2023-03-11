@@ -35,8 +35,10 @@ public class CaixaChatBot {
 
         System.out.print("Qual o número da conta? ");
         int accountNumber = sc.nextInt();
+        long accountNumberValidation = 0;
         for (ContaSimples conta: listaContas) {
             if (accountNumber == conta.getNúmero()) {
+                accountNumberValidation = conta.getNúmero();
                 int secondChoice = 0;
                 while (secondChoice != 6){
                     System.out.println("""
@@ -61,25 +63,18 @@ public class CaixaChatBot {
                             conta.sacar(saque);
                             break;
                         case 3:
-                            System.out.print("Digite o dia inicial: ");
-                            int initialDay = sc.nextInt();
-                            sc.nextLine();
-                            System.out.print("Digite o mês inicial: ");
-                            int initialMonth = sc.nextInt();
-                            sc.nextLine();
-                            System.out.print("Digite o ano inicial: ");
-                            int initialYear = sc.nextInt();
-                            sc.nextLine();
+                            System.out.print("Digite a data inicial (DD/MM/YYYY): ");
+                            sc.useDelimiter("/|\\s+");
 
-                            System.out.print("Digite o dia final: ");
+                            int initialDay = sc.nextInt();
+                            int initialMonth = sc.nextInt();
+                            int initialYear = sc.nextInt();
+
+                            System.out.print("Digite a data final (DD/MM/YYYY): ");
                             int finalDay = sc.nextInt();
-                            sc.nextLine();
-                            System.out.print("Digite o mês final: ");
                             int finalMonth = sc.nextInt();
-                            sc.nextLine();
-                            System.out.print("Digite o ano final: ");
                             int finalYear = sc.nextInt();
-                            sc.nextLine();
+
                             System.out.println(conta.criarExtrato(new Data(initialDay, initialMonth, initialYear),
                                     new Data(finalDay, finalMonth, finalYear)).formatar());
                             break;
@@ -99,8 +94,9 @@ public class CaixaChatBot {
                     }
                 }
             }
-
-
+        }
+        if (accountNumberValidation == 0) {
+            System.out.println("A conta informada não existe!");
         }
     }
 }
